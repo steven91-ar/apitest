@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exposant</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Liste des exposants</h1>
+        <div class="exposants-list">
+          <ng-container *ngFor="let exposant of exposants">
+            <div class="exposant-card">
+              <h2>{{ exposant.label }}</h2>
+              <p>{{ exposant.description }}</p>
+              <img src="{{ exposant.imageLocal }}" alt="{{ exposant.label }}">
+            </div>
+          </ng-container>
+          <div class="loading-indicator" *ngIf="loading">
+            Chargement...
+          </div>
+        </div>
+        <button class="load-more" (click)="onLoadMore()">Charger plus</button>
+      </div>
+</body>
+</html>
+
